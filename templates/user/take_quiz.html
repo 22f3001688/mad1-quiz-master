@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start the Quiz</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #05161a;
+            color: #fff;
+        }
+
+        /* Container styling */
+        .container {
+            margin-top: 20px;
+            padding: 20px;
+            background: #072e33;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h2 {
+            color: #0f969c;
+            margin-bottom: 20px;
+        }
+
+        /* Quiz Status */
+        .quiz-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .badge.bg-success {
+            background-color: #26c29d;
+            color: #fff;
+        }
+
+        .badge.bg-primary {
+            background-color: #3098a1;
+            color: #fff;
+        }
+
+        /* Question Box */
+        .question-box {
+            background: #0f2a30;
+            padding: 20px;
+            border-radius: 10px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .question-box h4 {
+            margin-bottom: 20px;
+        }
+
+        /* Form Styling */
+        .form-check-label {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        .form-check-input {
+            margin-right: 10px;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #0f969c;
+            border: none;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0b5a5e;
+        }
+
+        .btn-success {
+            background-color: #389c74;
+            border: none;
+            color: #fff;
+        }
+
+        .btn-success:hover {
+            background-color: #168466;
+        }
+    </style>
+    <script>
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = Math.floor(timer / 60);
+                seconds = timer % 60;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+                display.textContent = minutes + ":" + seconds;
+                if (--timer < 0) {
+                    timer = 0;
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            let timeLeft = 14 * 60 + 52; // 14 minutes 52 seconds
+            let display = document.querySelector("#time");
+            startTimer(timeLeft, display);
+        };
+    </script>
+</head>
+<body>
+
+    <div class="container text-center">
+        <h2>Start the Quiz</h2>
+
+        <!-- Quiz Status -->
+        <div class="quiz-status">
+            <div class="badge bg-success">QNo. <span class="text-dark">3/15</span></div>
+            <div class="timer badge bg-primary">
+                <span id="time">00:13:52</span>
+            </div>
+        </div>
+
+        <!-- Question Box -->
+        <div class="question-box">
+            <h4>.....Question Statement...</h4>
+            <form>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="option" id="option1">
+                    <label class="form-check-label" for="option1">1) Option....</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="option" id="option2">
+                    <label class="form-check-label" for="option2">2) Option....</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="option" id="option3" checked>
+                    <label class="form-check-label" for="option3">3) Option....</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="option" id="option4">
+                    <label class="form-check-label" for="option4">4) Option....</label>
+                </div>
+            </form>
+        </div>
+
+        <!-- Buttons -->
+        <div class="mt-4">
+            <button class="btn btn-primary">Save and Next</button>
+            <button class="btn btn-success">Submit</button>
+        </div>
+    </div>
+
+</body>
+</html>
